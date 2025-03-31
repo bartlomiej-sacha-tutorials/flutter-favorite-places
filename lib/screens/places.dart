@@ -1,5 +1,5 @@
 import 'package:favorite_places/providers/places_provider.dart';
-import 'package:favorite_places/screens/add_place_screen.dart';
+import 'package:favorite_places/screens/add_place.dart';
 import 'package:favorite_places/widgets/places_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -27,7 +27,7 @@ class PlacesScreen extends ConsumerWidget {
           ),
         ],
       ),
-      body: Center(child: PlacesList(places: places)),
+      body: PlacesList(places: places),
     );
   }
 }
