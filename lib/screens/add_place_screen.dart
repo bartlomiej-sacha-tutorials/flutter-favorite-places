@@ -33,6 +33,7 @@ class _AddPlaceScreenState extends ConsumerState<AddPlaceScreen> {
             TextField(
               controller: _titleController,
               decoration: const InputDecoration(label: Text('Title')),
+              style: const TextStyle(fontSize: 14, color: Colors.white),
             ),
             const SizedBox(height: 20),
             ElevatedButton(
