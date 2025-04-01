@@ -26,17 +26,20 @@ class _AddPlaceScreenState extends ConsumerState<AddPlaceScreen> {
         centerTitle: false,
         backgroundColor: Theme.of(context).colorScheme.shadow,
       ),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(12),
         child: Column(
           children: [
             TextField(
               controller: _titleController,
               decoration: const InputDecoration(label: Text('Title')),
-              style: const TextStyle(fontSize: 14, color: Colors.white),
+              style: TextStyle(
+                fontSize: 14,
+                color: Theme.of(context).colorScheme.onSurface,
+              ),
             ),
             const SizedBox(height: 20),
-            ElevatedButton(
+            ElevatedButton.icon(
               onPressed: () {
                 ref
                     .read(placesProvider.notifier)
@@ -49,13 +52,8 @@ class _AddPlaceScreenState extends ConsumerState<AddPlaceScreen> {
                 );
                 Navigator.of(context).pop();
               },
-              child: Row(
-                children: [
-                  const Icon(Icons.add),
-                  SizedBox(width: 8),
-                  Text('Add place'),
-                ],
-              ),
+              icon: const Icon(Icons.add),
+              label: const Text('Add Place'),
             ),
           ],
         ),
