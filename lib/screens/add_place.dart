@@ -1,4 +1,4 @@
-import 'package:favorite_places/providers/places_provider.dart';
+import 'package:favorite_places/providers/user_places.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -42,7 +42,7 @@ class _AddPlaceScreenState extends ConsumerState<AddPlaceScreen> {
             ElevatedButton.icon(
               onPressed: () {
                 ref
-                    .read(placesProvider.notifier)
+                    .read(userPlacesProvider.notifier)
                     .addPlace(_titleController.text);
 
                 ScaffoldMessenger.of(context).showSnackBar(

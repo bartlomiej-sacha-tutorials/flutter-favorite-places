@@ -1,4 +1,4 @@
-import 'package:favorite_places/providers/places_provider.dart';
+import 'package:favorite_places/providers/user_places.dart';
 import 'package:favorite_places/screens/add_place.dart';
 import 'package:favorite_places/widgets/places_list.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +9,7 @@ class PlacesScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final places = ref.watch(placesProvider);
+    final places = ref.watch(userPlacesProvider);
 
     return Scaffold(
       appBar: AppBar(
