@@ -17,7 +17,9 @@ class PlaceDetails extends StatelessWidget {
       body: Center(
         child: Text(
           'Details for ${place.title}',
-          style: Theme.of(context).textTheme.titleMedium,
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+            color: Theme.of(context).colorScheme.onSurface,
+          ),
         ),
       ),
     );

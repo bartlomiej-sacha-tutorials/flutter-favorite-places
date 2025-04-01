@@ -12,6 +12,20 @@ class AddPlaceScreen extends ConsumerStatefulWidget {
 class _AddPlaceScreenState extends ConsumerState<AddPlaceScreen> {
   final _titleController = TextEditingController();
 
+  void _savePlace() {
+    final enteredTitle = _titleController.text;
+
+    if (enteredTitle.isEmpty) {
+      return;
+    }
+
+    ref.read(userPlacesProvider.notifier).addPlace(enteredTitle);
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('Place "${_titleController.text}" added!')),
+    );
+    Navigator.of(context).pop();
+  }
+
   @override
   void dispose() {
     _titleController.dispose();
@@ -40,18 +54,7 @@ class _AddPlaceScreenState extends ConsumerState<AddPlaceScreen> {
             ),
             const SizedBox(height: 20),
             ElevatedButton.icon(
-              onPressed: () {
-                ref
-                    .read(userPlacesProvider.notifier)
-                    .addPlace(_titleController.text);
-
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text('Place "${_titleController.text}" added!'),
-                  ),
-                );
-                Navigator.of(context).pop();
-              },
+              onPressed: _savePlace,
               icon: const Icon(Icons.add),
               label: const Text('Add Place'),
             ),
